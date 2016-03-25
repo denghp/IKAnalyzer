@@ -24,8 +24,6 @@
  */
 package org.wltea.analyzer.lucene;
 
-import java.io.Reader;
-
 import org.apache.lucene.analysis.Analyzer;
 import org.apache.lucene.analysis.Tokenizer;
 
@@ -68,13 +66,9 @@ public final class IKAnalyzer extends Analyzer {
    * 重载Analyzer接口，构造分词组件
    */
   @Override
-  protected TokenStreamComponents createComponents(String fieldName, final Reader in) {
-    Tokenizer _IKTokenizer = new IKTokenizer(in, this.useSmart());
-    return new TokenStreamComponents(_IKTokenizer);
-  }
-
-  @Override
   protected TokenStreamComponents createComponents(String s) {
-    return null;
+    Tokenizer _IKTokenizer = new IKTokenizer(this.useSmart());
+    return new TokenStreamComponents(_IKTokenizer);
+
   }
 }
