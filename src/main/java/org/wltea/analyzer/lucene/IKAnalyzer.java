@@ -73,4 +73,8 @@ public final class IKAnalyzer extends Analyzer {
     return new TokenStreamComponents(_IKTokenizer);
   }
 
+  @Override
+  protected TokenStreamComponents createComponents(String s) {
+    return null;
+  }
 }
